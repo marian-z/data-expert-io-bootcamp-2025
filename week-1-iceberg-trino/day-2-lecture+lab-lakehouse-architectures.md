@@ -1,4 +1,4 @@
-Data Lake Architectures
+# Data Lake Architectures
 
 **DE.IO Description:**
 
