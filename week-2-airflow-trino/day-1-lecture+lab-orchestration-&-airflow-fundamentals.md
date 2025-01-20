@@ -26,7 +26,7 @@ In this lecture, Zach breaks down the key aspects of orchestration, focusing on 
 - Orchestration is the higher level component not some specific tool
 - Orchestration is the conductor in the orchestra that tells different parts of the troupe what to do to make the magic happen
 
-![Lecture 1 Iceberg Architecture](https://github.com/marian-z/data-expert-io-bootcamp-2025/raw/main/week-1-iceberg-trino/images/lecture_1_iceberg_architecture.png)
+![Lecture 1 What_Is_Orchestration](https://github.com/marian-z/data-expert-io-bootcamp-2025/raw/main/week-2-airflow-trino/images/lecture-1-what-is-orchestration.png)
 
 - **4 pillars of data orchestration:**
   - Collection
@@ -174,7 +174,7 @@ A: Trino when you need to query data directly from multiple sources without movi
   - Each task_id has its op_kwargs where you define the variables/credentials/etc.
   - When submitting DAGs the **“job_name”** kwarg in the run_glue_job task_id needs to include your name
   - **{{ds}} in “arguments” is what we have discussed in lecture with logical vs execution date**
-- Astronomer (ASTRO CLI) is basically a managed Airflow instance that helps with deploying your Airflow DAGS in the cloud infrastructure and it also starts up your Airflow instance for you by running **astro dev start** in CLI (after having Astro CLI installed) it will spin up 4 docker containers on your machine (you need to have Docker Desktop running)
+- Astronomer (ASTRO CLI) is basically a managed Airflow service that allows you to orchestrate your Airflow DAGS in the cloud infrastructure and it also starts up your Airflow instance for you by running **astro dev start** in CLI (after having Astro CLI installed) it will spin up 4 docker containers on your machine (you need to have Docker Desktop running)
   - Container 1: Postgres - Airflow’s metadata database, storing internal state and configurations
   - Container 2: Webserver - Renders the Airflow UI
   - Container 3: Scheduler - Monitors, triggers, and orchestrates task execution for proper sequencing and resource allocation
@@ -203,7 +203,7 @@ A: Trino when you need to query data directly from multiple sources without movi
             UNION ALL  
             SELECT table_type, some_column, COUNT(1) FROM (SELECT old AS table_type, \* FROM schema.prod_table_example)_
 
-![Lecture 1 Iceberg Architecture](https://github.com/marian-z/data-expert-io-bootcamp-2025/raw/main/week-1-iceberg-trino/images/lecture_1_iceberg_architecture.png)
+![Lecture 1 Lab_Results](https://github.com/marian-z/data-expert-io-bootcamp-2025/raw/main/week-2-airflow-trino/images/lecture-1-lab-results.png)
 
 - We can see that we are missing one day of data in the backfill
 - In BigTech you usually don’t have a Staging environment. Everything is done in Production and works in a way that you have an overwriting “output_table” flag in your Airflow/Spark code which basically has a default table to which the airflow DAG writes but allows you to change the table to which you are writing directly in the command line when running the DAG. That means that you don’t write to the heavily used production table but to a different one which you then rename after it’s correctly backfilled and start using that one.
