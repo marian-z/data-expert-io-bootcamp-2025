@@ -78,16 +78,7 @@
 - With grouping sets you have to be aware of the fact that for lower aggregation levels the columns outside of aggregation window get NULLed out
 - It is also important to not have any NULL values in columns that we will be grouping by - hence the COALESCE queries
 - The other COALESCE inside the SELECT where we replace values with (overall) is useful to make sure we also replace NULLs that can be introduced with the GROUPING SET
-
-![Lecture 2 6](https://github.com/marian-z/data-expert-io-bootcamp-2025/raw/main/week-5-applying-analytical-patterns/images/lecture-2-6.png)
-
 - If we add GROUPING column inside the query then in the results we will be able to see which columns were used in the grouping of data for that specific row
   - 0 means that the column was used
 
-![Lecture 2 7](https://github.com/marian-z/data-expert-io-bootcamp-2025/raw/main/week-5-applying-analytical-patterns/images/lecture-2-7.png)
-
-![Lecture 2 8](https://github.com/marian-z/data-expert-io-bootcamp-2025/raw/main/week-5-applying-analytical-patterns/images/lecture-2-8.png)
-
 - There are different ways that we can define our aggregation level column by
-
-![Lecture 2 9](https://github.com/marian-z/data-expert-io-bootcamp-2025/raw/main/week-5-applying-analytical-patterns/images/lecture-2-9.png)
