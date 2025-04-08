@@ -1,4 +1,4 @@
-Spark Structured Streaming
+# Spark Structured Streaming
 
 ## Main Topics for the lecture
 
