@@ -1,4 +1,4 @@
-Advanced Spark Optimization
+# Advanced Spark Optimization
 
 ## Main Topics for the lecture
 
